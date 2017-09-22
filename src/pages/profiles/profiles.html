@@ -40,7 +40,41 @@
       <h2>{{profiles.name}}</h2>
       <p>{{profiles.location}}</p>
     </ion-item>
+
+    <ion-card-content>
+      <p>{{profiles.bio}}</p>
+    </ion-card-content>
+
+    <ion-row>
+      <!-- Followers -->
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="person"></ion-icon>
+          <div>{{profiles.followers}} Followers</div>
+        </button>
+      </ion-col>
+      <!-- Public Repositories -->
+      <ion-col>
+          <button ion-button icon-left clear small (click)="showRepos(profiles.login)">
+            <ion-icon name="git-branch"></ion-icon>
+            <div>{{profiles.public_repos}} Public Repos</div>
+          </button>
+      </ion-col>
+      <!-- Company Info -->
+      <ion-col>
+        <ion-note>{{profiles.company}}</ion-note>
+      </ion-col>
+    </ion-row>
   </ion-card>
 
-  <ion-card></ion-card>
+
+  <!-- Repositories ion-card -->
+  <ion-card *ngIf="repos">
+    <ion-list>
+      <ion-item *ngFor="let repo of repos">
+        <h2>{{repo.name}}</h2>
+        <p>{{repo.description}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-card>
 </ion-content>
