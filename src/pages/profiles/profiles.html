@@ -14,5 +14,33 @@
 
 
 <ion-content padding>
+  <!-- Search User ion-card -->
+  <ion-card>
+
+    <!-- Search user form -->
+    <form (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-label>
+          Github User:
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="github_user" name="github_user"></ion-input>
+      </ion-item>
+      <br>
+      <button ion-button type="submit" clear small>Search</button>
+    </form>
+    <button ion-button clear small (click)="reset()">Reset</button>
+  </ion-card>
+
+  <!-- User Info ion-card -->
+  <ion-card *ngIf="profiles">
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="{{profiles.avatar_url}}" />
+      </ion-avatar>
+      <h2>{{profiles.name}}</h2>
+      <p>{{profiles.location}}</p>
+    </ion-item>
+  </ion-card>
+
   <ion-card></ion-card>
 </ion-content>
