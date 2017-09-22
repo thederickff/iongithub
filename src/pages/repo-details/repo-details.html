@@ -7,12 +7,33 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>repo-details</ion-title>
+    <ion-title>Repo Details Page</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-card>
+    <ion-item>
+      <ion-icon name="cube"></ion-icon>
+      <strong>Repository Details</strong>
+      <h1>{{selectedRepo.name}}</h1>
+      <h3>{{selectedRepo.owner.login}}</h3>
+    </ion-item>
+    <hr>
+    <ion-card-content>
+      <p><strong>Description:</strong> {{selectedRepo.description}}</p>
+      <p><strong>Language:</strong> {{selectedRepo.language}}</p>
+      <p><strong>Watchers:</strong> {{selectedRepo.watchers_count}}</p>
+      <p><strong>Stars:</strong> {{selectedRepo.stargazers_count}}</p>
+      <p><strong>Forks:</strong> {{selectedRepo.forks_count}}</p>
+    </ion-card-content>
+    <ion-card-content>
+      <a href="{{selectedRepo.html_url}}" ion-button icon-left small>
+        <ion-icon name="git-network"></ion-icon>
+        <div>Go to repo Website</div>
+      </a>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

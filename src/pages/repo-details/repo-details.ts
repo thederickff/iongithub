@@ -15,7 +15,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RepoDetailsPage {
 
+  selectedRepo: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.selectedRepo = navParams.get('repo');
   }
 
   ionViewDidLoad() {
